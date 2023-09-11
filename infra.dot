@@ -1,0 +1,165 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] module.cloudsql.google_sql_database.sql_database (expand)" [label = "module.cloudsql.google_sql_database.sql_database", shape = "box"]
+		"[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)" [label = "module.cloudsql.google_sql_database_instance.sql_instance", shape = "box"]
+		"[root] module.cloudsql.google_sql_user.sql_user (expand)" [label = "module.cloudsql.google_sql_user.sql_user", shape = "box"]
+		"[root] module.gke_cluster.google_container_cluster.gke_cluster (expand)" [label = "module.gke_cluster.google_container_cluster.gke_cluster", shape = "box"]
+		"[root] module.gke_cluster.google_container_node_pool.gke_node_pool (expand)" [label = "module.gke_cluster.google_container_node_pool.gke_node_pool", shape = "box"]
+		"[root] module.storage.google_storage_bucket.storage_bucket (expand)" [label = "module.storage.google_storage_bucket.storage_bucket", shape = "box"]
+		"[root] module.vpc.google_compute_network.main_network (expand)" [label = "module.vpc.google_compute_network.main_network", shape = "box"]
+		"[root] module.vpc.google_compute_subnetwork.private_subnets (expand)" [label = "module.vpc.google_compute_subnetwork.private_subnets", shape = "box"]
+		"[root] module.vpc.google_compute_subnetwork.public_subnets (expand)" [label = "module.vpc.google_compute_subnetwork.public_subnets", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"]" [label = "provider[\"registry.terraform.io/hashicorp/google\"]", shape = "diamond"]
+		"[root] var.bucket_location" [label = "var.bucket_location", shape = "note"]
+		"[root] var.bucket_name" [label = "var.bucket_name", shape = "note"]
+		"[root] var.cluster_location" [label = "var.cluster_location", shape = "note"]
+		"[root] var.cluster_name" [label = "var.cluster_name", shape = "note"]
+		"[root] var.cluster_num_nodes" [label = "var.cluster_num_nodes", shape = "note"]
+		"[root] var.database_name" [label = "var.database_name", shape = "note"]
+		"[root] var.database_version" [label = "var.database_version", shape = "note"]
+		"[root] var.db_password" [label = "var.db_password", shape = "note"]
+		"[root] var.db_username" [label = "var.db_username", shape = "note"]
+		"[root] var.disk_space" [label = "var.disk_space", shape = "note"]
+		"[root] var.environment" [label = "var.environment", shape = "note"]
+		"[root] var.instance_name" [label = "var.instance_name", shape = "note"]
+		"[root] var.instance_tier" [label = "var.instance_tier", shape = "note"]
+		"[root] var.instance_type" [label = "var.instance_type", shape = "note"]
+		"[root] var.location" [label = "var.location", shape = "note"]
+		"[root] var.project_id" [label = "var.project_id", shape = "note"]
+		"[root] var.region" [label = "var.region", shape = "note"]
+		"[root] var.subnet_id" [label = "var.subnet_id", shape = "note"]
+		"[root] var.vpc_id" [label = "var.vpc_id", shape = "note"]
+		"[root] var.zone" [label = "var.zone", shape = "note"]
+		"[root] module.cloudsql (close)" -> "[root] module.cloudsql.google_sql_user.sql_user (expand)"
+		"[root] module.cloudsql (close)" -> "[root] module.cloudsql.output.database (expand)"
+		"[root] module.cloudsql (close)" -> "[root] module.cloudsql.output.database_connection (expand)"
+		"[root] module.cloudsql (close)" -> "[root] module.cloudsql.output.instance_connection_name (expand)"
+		"[root] module.cloudsql (close)" -> "[root] module.cloudsql.output.instance_ip (expand)"
+		"[root] module.cloudsql.google_sql_database.sql_database (expand)" -> "[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)"
+		"[root] module.cloudsql.google_sql_database.sql_database (expand)" -> "[root] module.cloudsql.var.database_name (expand)"
+		"[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)" -> "[root] module.cloudsql.var.database_version (expand)"
+		"[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)" -> "[root] module.cloudsql.var.disk_space (expand)"
+		"[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)" -> "[root] module.cloudsql.var.instance_name (expand)"
+		"[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)" -> "[root] module.cloudsql.var.instance_tier (expand)"
+		"[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)" -> "[root] module.cloudsql.var.location (expand)"
+		"[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)" -> "[root] module.cloudsql.var.region (expand)"
+		"[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] module.cloudsql.google_sql_user.sql_user (expand)" -> "[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)"
+		"[root] module.cloudsql.google_sql_user.sql_user (expand)" -> "[root] module.cloudsql.var.db_password (expand)"
+		"[root] module.cloudsql.google_sql_user.sql_user (expand)" -> "[root] module.cloudsql.var.db_username (expand)"
+		"[root] module.cloudsql.output.database (expand)" -> "[root] module.cloudsql.google_sql_database.sql_database (expand)"
+		"[root] module.cloudsql.output.database_connection (expand)" -> "[root] module.cloudsql.google_sql_database.sql_database (expand)"
+		"[root] module.cloudsql.output.instance_connection_name (expand)" -> "[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)"
+		"[root] module.cloudsql.output.instance_ip (expand)" -> "[root] module.cloudsql.google_sql_database_instance.sql_instance (expand)"
+		"[root] module.cloudsql.var.database_name (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.database_name (expand)" -> "[root] var.database_name"
+		"[root] module.cloudsql.var.database_version (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.database_version (expand)" -> "[root] var.database_version"
+		"[root] module.cloudsql.var.db_password (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.db_password (expand)" -> "[root] var.db_password"
+		"[root] module.cloudsql.var.db_username (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.db_username (expand)" -> "[root] var.db_username"
+		"[root] module.cloudsql.var.disk_space (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.disk_space (expand)" -> "[root] var.disk_space"
+		"[root] module.cloudsql.var.instance_name (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.instance_name (expand)" -> "[root] var.instance_name"
+		"[root] module.cloudsql.var.instance_tier (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.instance_tier (expand)" -> "[root] var.instance_tier"
+		"[root] module.cloudsql.var.location (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.location (expand)" -> "[root] var.location"
+		"[root] module.cloudsql.var.region (expand)" -> "[root] module.cloudsql (expand)"
+		"[root] module.cloudsql.var.region (expand)" -> "[root] var.region"
+		"[root] module.gke_cluster (close)" -> "[root] module.gke_cluster.google_container_node_pool.gke_node_pool (expand)"
+		"[root] module.gke_cluster (close)" -> "[root] module.gke_cluster.output.k8s_cluster_host (expand)"
+		"[root] module.gke_cluster (close)" -> "[root] module.gke_cluster.output.k8s_cluster_name (expand)"
+		"[root] module.gke_cluster.google_container_cluster.gke_cluster (expand)" -> "[root] module.gke_cluster.var.cluster_location (expand)"
+		"[root] module.gke_cluster.google_container_cluster.gke_cluster (expand)" -> "[root] module.gke_cluster.var.cluster_name (expand)"
+		"[root] module.gke_cluster.google_container_cluster.gke_cluster (expand)" -> "[root] module.gke_cluster.var.subnet_id (expand)"
+		"[root] module.gke_cluster.google_container_cluster.gke_cluster (expand)" -> "[root] module.gke_cluster.var.vpc_id (expand)"
+		"[root] module.gke_cluster.google_container_node_pool.gke_node_pool (expand)" -> "[root] module.gke_cluster.google_container_cluster.gke_cluster (expand)"
+		"[root] module.gke_cluster.google_container_node_pool.gke_node_pool (expand)" -> "[root] module.gke_cluster.var.cluster_num_nodes (expand)"
+		"[root] module.gke_cluster.google_container_node_pool.gke_node_pool (expand)" -> "[root] module.gke_cluster.var.instance_type (expand)"
+		"[root] module.gke_cluster.google_container_node_pool.gke_node_pool (expand)" -> "[root] module.gke_cluster.var.project_id (expand)"
+		"[root] module.gke_cluster.output.k8s_cluster_host (expand)" -> "[root] module.gke_cluster.google_container_cluster.gke_cluster (expand)"
+		"[root] module.gke_cluster.output.k8s_cluster_name (expand)" -> "[root] module.gke_cluster.google_container_cluster.gke_cluster (expand)"
+		"[root] module.gke_cluster.var.cluster_location (expand)" -> "[root] module.gke_cluster (expand)"
+		"[root] module.gke_cluster.var.cluster_location (expand)" -> "[root] var.cluster_location"
+		"[root] module.gke_cluster.var.cluster_name (expand)" -> "[root] module.gke_cluster (expand)"
+		"[root] module.gke_cluster.var.cluster_name (expand)" -> "[root] var.cluster_name"
+		"[root] module.gke_cluster.var.cluster_num_nodes (expand)" -> "[root] module.gke_cluster (expand)"
+		"[root] module.gke_cluster.var.cluster_num_nodes (expand)" -> "[root] var.cluster_num_nodes"
+		"[root] module.gke_cluster.var.instance_type (expand)" -> "[root] module.gke_cluster (expand)"
+		"[root] module.gke_cluster.var.instance_type (expand)" -> "[root] var.instance_type"
+		"[root] module.gke_cluster.var.project_id (expand)" -> "[root] module.gke_cluster (expand)"
+		"[root] module.gke_cluster.var.project_id (expand)" -> "[root] var.project_id"
+		"[root] module.gke_cluster.var.subnet_id (expand)" -> "[root] module.gke_cluster (expand)"
+		"[root] module.gke_cluster.var.subnet_id (expand)" -> "[root] module.vpc.output.private_subnets (expand)"
+		"[root] module.gke_cluster.var.vpc_id (expand)" -> "[root] module.gke_cluster (expand)"
+		"[root] module.gke_cluster.var.vpc_id (expand)" -> "[root] module.vpc.output.vpc (expand)"
+		"[root] module.storage (close)" -> "[root] module.storage.output.bucket_id (expand)"
+		"[root] module.storage (close)" -> "[root] module.storage.output.bucket_location (expand)"
+		"[root] module.storage (close)" -> "[root] module.storage.output.bucket_name (expand)"
+		"[root] module.storage (close)" -> "[root] module.storage.output.bucket_project (expand)"
+		"[root] module.storage (close)" -> "[root] module.storage.output.premier_pro (expand)"
+		"[root] module.storage.google_storage_bucket.storage_bucket (expand)" -> "[root] module.storage.var.bucket_location (expand)"
+		"[root] module.storage.google_storage_bucket.storage_bucket (expand)" -> "[root] module.storage.var.bucket_name (expand)"
+		"[root] module.storage.google_storage_bucket.storage_bucket (expand)" -> "[root] module.storage.var.environment (expand)"
+		"[root] module.storage.google_storage_bucket.storage_bucket (expand)" -> "[root] module.storage.var.storage_class (expand)"
+		"[root] module.storage.google_storage_bucket.storage_bucket (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] module.storage.output.bucket_id (expand)" -> "[root] module.storage.google_storage_bucket.storage_bucket (expand)"
+		"[root] module.storage.output.bucket_location (expand)" -> "[root] module.storage.google_storage_bucket.storage_bucket (expand)"
+		"[root] module.storage.output.bucket_name (expand)" -> "[root] module.storage.google_storage_bucket.storage_bucket (expand)"
+		"[root] module.storage.output.bucket_project (expand)" -> "[root] module.storage.var.project_id (expand)"
+		"[root] module.storage.output.premier_pro (expand)" -> "[root] module.storage (expand)"
+		"[root] module.storage.var.bucket_location (expand)" -> "[root] module.storage (expand)"
+		"[root] module.storage.var.bucket_location (expand)" -> "[root] var.bucket_location"
+		"[root] module.storage.var.bucket_name (expand)" -> "[root] module.storage (expand)"
+		"[root] module.storage.var.bucket_name (expand)" -> "[root] var.bucket_name"
+		"[root] module.storage.var.environment (expand)" -> "[root] module.storage (expand)"
+		"[root] module.storage.var.project_id (expand)" -> "[root] module.storage (expand)"
+		"[root] module.storage.var.project_id (expand)" -> "[root] var.project_id"
+		"[root] module.storage.var.storage_class (expand)" -> "[root] module.storage (expand)"
+		"[root] module.vpc (close)" -> "[root] module.vpc.output.private_subnets (expand)"
+		"[root] module.vpc (close)" -> "[root] module.vpc.output.public_subnet (expand)"
+		"[root] module.vpc (close)" -> "[root] module.vpc.output.vpc (expand)"
+		"[root] module.vpc (close)" -> "[root] module.vpc.var.private_subnet_names (expand)"
+		"[root] module.vpc (close)" -> "[root] module.vpc.var.region (expand)"
+		"[root] module.vpc.google_compute_network.main_network (expand)" -> "[root] module.vpc.var.project_id (expand)"
+		"[root] module.vpc.google_compute_network.main_network (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"]"
+		"[root] module.vpc.google_compute_subnetwork.private_subnets (expand)" -> "[root] module.vpc.google_compute_network.main_network (expand)"
+		"[root] module.vpc.google_compute_subnetwork.private_subnets (expand)" -> "[root] module.vpc.var.private_subnets (expand)"
+		"[root] module.vpc.google_compute_subnetwork.private_subnets (expand)" -> "[root] module.vpc.var.public_subnet_names (expand)"
+		"[root] module.vpc.google_compute_subnetwork.public_subnets (expand)" -> "[root] module.vpc.google_compute_network.main_network (expand)"
+		"[root] module.vpc.google_compute_subnetwork.public_subnets (expand)" -> "[root] module.vpc.var.public_subnet_names (expand)"
+		"[root] module.vpc.google_compute_subnetwork.public_subnets (expand)" -> "[root] module.vpc.var.public_subnets (expand)"
+		"[root] module.vpc.output.private_subnets (expand)" -> "[root] module.vpc.google_compute_subnetwork.private_subnets (expand)"
+		"[root] module.vpc.output.public_subnet (expand)" -> "[root] module.vpc.google_compute_subnetwork.public_subnets (expand)"
+		"[root] module.vpc.output.vpc (expand)" -> "[root] module.vpc.google_compute_network.main_network (expand)"
+		"[root] module.vpc.var.private_subnet_names (expand)" -> "[root] module.vpc (expand)"
+		"[root] module.vpc.var.private_subnets (expand)" -> "[root] module.vpc (expand)"
+		"[root] module.vpc.var.project_id (expand)" -> "[root] module.vpc (expand)"
+		"[root] module.vpc.var.project_id (expand)" -> "[root] var.project_id"
+		"[root] module.vpc.var.public_subnet_names (expand)" -> "[root] module.vpc (expand)"
+		"[root] module.vpc.var.public_subnets (expand)" -> "[root] module.vpc (expand)"
+		"[root] module.vpc.var.region (expand)" -> "[root] module.vpc (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] module.cloudsql.google_sql_database.sql_database (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] module.cloudsql.google_sql_user.sql_user (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] module.gke_cluster.google_container_node_pool.gke_node_pool (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] module.storage.google_storage_bucket.storage_bucket (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)" -> "[root] module.vpc.google_compute_subnetwork.public_subnets (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"]" -> "[root] var.project_id"
+		"[root] provider[\"registry.terraform.io/hashicorp/google\"]" -> "[root] var.region"
+		"[root] root" -> "[root] module.cloudsql (close)"
+		"[root] root" -> "[root] module.gke_cluster (close)"
+		"[root] root" -> "[root] module.storage (close)"
+		"[root] root" -> "[root] module.vpc (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/google\"] (close)"
+		"[root] root" -> "[root] var.environment"
+		"[root] root" -> "[root] var.subnet_id"
+		"[root] root" -> "[root] var.vpc_id"
+		"[root] root" -> "[root] var.zone"
+	}
+}
+
