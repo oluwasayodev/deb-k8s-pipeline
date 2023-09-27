@@ -8,3 +8,6 @@ venv/
 logs/
 __pycache__/
 *.env
+*.ipynb
+
+wizeline-sayo-2c7ff3474e02.json

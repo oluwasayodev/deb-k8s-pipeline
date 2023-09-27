@@ -32,4 +32,18 @@ logs:
     # If using a custom storageClass, pass name here
     storageClassName: nfs-client
 
+extraEnv:
+  - name: AIRFLOW__CORE__FERNET_KEY
+    valueFrom:
+      secretKeyRef:
+        name: airflow-fernet-key
+        key: value
+
+  - name: AIRFLOW__WEBSERVER__SECRET_KEY
+    valueFrom:
+      secretKeyRef:
+        name: airflow-webserver-secret-key
+        key: value
+
+
 
