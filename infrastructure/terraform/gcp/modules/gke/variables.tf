@@ -33,5 +33,5 @@ variable "cluster_num_nodes" {
 variable "instance_type" {
     type = string
     description = "Instance type of each node in k8s cluster"
-    default = "n1-standard-1"
+    default = "n1-standard-2"
 }

@@ -1,14 +1,11 @@
-Set-Location .\infrastructure\terraform\gcp
-
-
 $clusterName = (terraform output -raw k8s_cluster_name)
 $clusterLocation = (terraform output -raw k8s_cluster_location)
 
 gcloud container clusters get-credentials $clusterName --region $clusterLocation
 
-Set-Location ../..
+
 kubectl create ns nfs
-kubectl apply -n nfs -f nfs/nfs-server.yaml
+kubectl apply -n nfs -f ../../nfs/nfs-server.yaml
 
 $env:NFS_SERVER = (kubectl get svc/nfs-server -n nfs -o jsonpath="{.spec.clusterIP}")
 

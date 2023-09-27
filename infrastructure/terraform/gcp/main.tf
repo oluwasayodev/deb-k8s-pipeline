@@ -36,8 +36,8 @@ module "gke_cluster" {
 module "cloudsql" {
     source = "./modules/cloudsql"
 
-    region = var.region
-    location = var.location
+    region = var.database_region
+    location = var.database_location
     database_name = var.database_name
     instance_name = var.instance_name
     database_version = var.database_version
