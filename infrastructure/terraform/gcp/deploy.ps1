@@ -3,7 +3,6 @@ $clusterLocation = (terraform output -raw k8s_cluster_location)
 
 gcloud container clusters get-credentials $clusterName --region $clusterLocation
 
-
 kubectl create ns nfs
 kubectl apply -n nfs -f ../../nfs/nfs-server.yaml
 

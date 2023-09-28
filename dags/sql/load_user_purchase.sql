@@ -1,4 +1,3 @@
-CREATE SCHEMA ecommerce IF NOT EXISTS;
 CREATE TABLE IF NOT EXIST ecommerce.user_purchase (
     invoice_no VARCHAR(10),
     stock_code VARCHAR(20),
